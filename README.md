@@ -1,6 +1,6 @@
 # InnovateX-IBM-Hackathon-2025-Smart-Internz
 
-# SmartSDLC AI Assistant
+## SmartSDLC AI Assistant
 
 SmartSDLC AI Assistant is a Streamlit-based application that leverages local LLMs (Llama.cpp) to assist with various software development lifecycle (SDLC) tasks, including SDLC phase generation, project abstract writing, code review, documentation generation, bug analysis, and project chat. The app is designed for privacy and offline use, running entirely on your machine.
 
