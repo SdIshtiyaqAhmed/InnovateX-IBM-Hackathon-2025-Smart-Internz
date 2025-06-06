@@ -8,8 +8,6 @@ SmartSDLC AI Assistant is a Streamlit-based application that leverages local LLM
 
 ![image](https://github.com/user-attachments/assets/9227ccce-5361-4fab-a8c5-3ebbb0e4a3b5)
 
-
-
 ## Features
 - **Project Management:** Create, select, and manage multiple software projects.
 - **AI-Powered SDLC Generation:** Automatically generate SDLC outlines for your projects.
