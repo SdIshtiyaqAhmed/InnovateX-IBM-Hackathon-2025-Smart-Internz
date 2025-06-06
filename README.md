@@ -6,7 +6,8 @@
 
 SmartSDLC AI Assistant is a Streamlit-based application that leverages local LLMs (Llama.cpp) to assist with various software development lifecycle (SDLC) tasks, including SDLC phase generation, project abstract writing, code review, documentation generation, bug analysis, and project chat. The app is designed for privacy and offline use, running entirely on your machine.
 
-![image](https://github.com/user-attachments/assets/64415330-d374-44d9-8a79-3693c0f961f9)
+![image](https://github.com/user-attachments/assets/9227ccce-5361-4fab-a8c5-3ebbb0e4a3b5)
+
 
 
 ## Features
