@@ -876,17 +876,31 @@ else:
 
     # --- AI Task Queue Processing (Refactored to new files logic) ---
     def process_ai_queue():
+        st.info("🚀 Queue processor triggered")
 
         running_task = st.session_state.ai_running_task
         pending_tasks = st.session_state.ai_pending_tasks
         finished_tasks = st.session_state.ai_finished_tasks
 
+        # Show queue state for debugging
+        with st.expander("🔍 Queue Debug Info", expanded=False):
+            st.subheader("Queue State Snapshot")
+            st.write("Running Task:")
+            st.json(running_task)
+            st.write("Pending Tasks:")
+            st.json(pending_tasks)
+            st.write("Recently Finished Tasks:")
+            st.json(finished_tasks[:1])
+
         # If a task is already running, exit
         if running_task is not None:
+            st.info("⏳ A task is already running. Waiting for it to finish.")
             return
+        st.info("🔄 Checking for pending tasks...")
 
         # If there's a pending task, promote and process it
         if pending_tasks:
+            st.info("🎯 Promoting next pending task to running.")
             running_task = pending_tasks.pop(0)
             running_task['status'] = 'running'
 
@@ -898,6 +912,7 @@ else:
             try:
                 prefs = get_task_ai_settings(running_task['type'], st.session_state.user_preferences)
                 result_content = None
+                st.info(f"⚙️ Processing task of type: `{running_task['type']}`")
 
                 if running_task['type'] == 'abstract':
                     result_content = generate_project_abstract(running_task['project_name'], running_task['input'], model_llm, prefs)
@@ -949,7 +964,7 @@ else:
                 st.session_state.ai_running_task = None
                 save_ai_running_task(None)
                 save_ai_finished_tasks(finished_tasks)
-                st.rerun()
+                st.rerun()  # ✅ Must be the last thing that always happens
 
 
     # --- One-Time Per-Render Flag to Avoid Double-Processing ---
